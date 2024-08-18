@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <title>ListStudents</title>
+</head>
+<body>
+<h3>Student List</h3>
+<p>
+    <a th:href="@{/students/create}">
+        Add new student
+    </a>
+</p>
+
+<div class="notify">
+    <div th:if="${success}">
+        <span th:text="${success}"></span>
+    </div>
+</div>
+
+<table id = "students">
+    <thead>
+    <tr>
+        <th>Fist Name</th>
+        <th>Last Name</th>
+        <th>Dob</th>
+        <th>Address</th>
+        <th>Mark</th>
+        <th>Image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+        <th>View</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="row,rowStat : ${students}">
+        <td th:text="${row.fistName}"></td>
+        <td th:text="${row.lastName}"></td>
+        <td th:text="${row.dob}"></td>
+        <td th:text="${row.address}"></td>
+        <td th:text="${row.mark}"></td>
+        <td><img style="width: 100px; height: 100px" th:src="@{'/image/'+${row.image}}"></td>
+        <td><a th:href="@{/students/{id}/edit(id=${row.getId()})}">edit</a></td>
+        <td><a th:href="@{/students/{id}/delete(id=${row.getId()})}">delete</a></td>
+        <td><a th:href="@{/students/{id}/view(id=${row.getId()})}">view</a></td>
+    </tr>
+    </tbody>
+</table>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

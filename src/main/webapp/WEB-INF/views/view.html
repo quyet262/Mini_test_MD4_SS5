@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <title>DetailStudent</title>
+</head>
+<body>
+<h3>View Student</h3>
+<p>
+    <a th:href="@{/students}">
+        Back to student list
+    </a>
+</p>
+<div id="detail">
+    <div class="cus-detail">
+        <label>Fist Name:</label>
+        <label th:text="${student.fistName}"></label>
+    </div>
+    <div class="cus-detail">
+        <label>Last Name:</label>
+        <label th:text="${student.lastName}"></label>
+    </div>
+    <div class="cus-detail">
+        <label>Dob:</label>
+        <label th:text="${student.dob}"></label>
+    </div>
+    <div class="cus-detail">
+        <label>Address:</label>
+        <label th:text="${student.address}"></label>
+    </div>
+    <div class="cus-detail">
+        <label>Dob:</label>
+        <label th:text="${student.mark}"></label>
+    </div>
+    <div class="cus-detail">
+        <label>Image:</label>
+        <img style="width: 100px; height: 100px" th:src="@{'/image/'+${student.image}}">
+<!--        <label th:text="${student.image}"></label>-->
+    </div>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>

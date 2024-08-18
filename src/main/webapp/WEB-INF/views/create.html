@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="/layout :: head">
+    <title>CreateStudent</title>
+</head>
+<body>
+<h3>Add Student</h3>
+<p>
+    <a th:href="@{/students}">
+        Back to student list
+    </a>
+</p>
+<div id="form">
+    <form th:action="@{/students/save}" th:object="${student}"
+          method="POST" novalidate="novalidate" enctype="multipart/form-data">
+        <input type="hidden" th:field="*{id}"/>
+        <div>
+            <label for="fistname">Fist Name</label>
+            <input type="text" id="fistname" th:field="*{fistName}"/>
+        </div>
+        <div>
+            <label for="lastname">Last Name</label>
+            <input type="text" id="lastname" th:field="*{lastName}"/>
+        </div>
+        <div>
+            <label for="dob">Dob</label>
+            <input type="text" id="dob" th:field="*{dob}"/>
+        </div>
+        <div>
+            <label for="address">Address</label>
+            <input type="text" id="address" th:field="*{address}"/>
+        </div>
+        <div>
+            <label for="mark">Mark</label>
+            <input type="text" id="mark" th:field="*{mark}"/>
+        </div>
+        <div>
+            <label for="img">IMG</label>
+            <input type="file" id="img" th:field="*{image}"/>
+        </div>
+        <input type="submit" value="Save"/>
+    </form>
+</div>
+<footer th:replace="/layout :: footer"></footer>
+</body>
+</html>
